@@ -33,7 +33,7 @@ namespace RandomNeko.Telegram
             string fileId = null;
             var sb = new StringBuilder();
             sb.AppendLine(neko.TagsTruncated());
-            sb.AppendLine($"nsfw: *{(neko.Nsfw ? "yes" : "no")}*");
+            sb.AppendLine($"nsfw: {(neko.Nsfw ? "yes" : "no")}");
             var caption = sb.ToString();
             await foreach (var client in db.GetTelegramClientIdsAsync()) {
                 if (fileId == null)
@@ -84,7 +84,6 @@ namespace RandomNeko.Telegram
             request.AddParameter("chat_id", chatId);
             request.AddParameter("photo", photoIdOrUrl);
             request.AddParameter("caption", caption);
-            request.AddParameter("parse_mode", "MarkdownV2");
             var resp = await c.ExecutePostAsync(request);
             var payload = c.Deserialize<Payload<Message>>(resp).Data;
             if(!payload.Ok) throw new Exception($"Request unsuccessful: {payload.Description}");
