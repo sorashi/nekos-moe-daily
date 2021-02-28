@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RandomNeko": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "NEKO_USE_TEST_CONFIG": "true"
+      }
+    }
+  }
+}

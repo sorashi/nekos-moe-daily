@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomNeko", "RandomNeko\RandomNeko.csproj", "{59D74B51-2FC6-4CF8-B8A7-9853CB94816C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomNeko.Test", "RandomNeko.Test\RandomNeko.Test.csproj", "{3A835A67-D757-4D15-A37D-89324593DE8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59D74B51-2FC6-4CF8-B8A7-9853CB94816C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D74B51-2FC6-4CF8-B8A7-9853CB94816C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D74B51-2FC6-4CF8-B8A7-9853CB94816C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D74B51-2FC6-4CF8-B8A7-9853CB94816C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A835A67-D757-4D15-A37D-89324593DE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A835A67-D757-4D15-A37D-89324593DE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A835A67-D757-4D15-A37D-89324593DE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A835A67-D757-4D15-A37D-89324593DE8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A301147D-E93B-498A-937F-769237CC15C7}
+	EndGlobalSection
+EndGlobal
