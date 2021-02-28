@@ -11,6 +11,5 @@ RUN groupadd -g 1000 app \
 && mkdir -p /app/data \
 && chown -R app:app /app/data
 USER app:app
-VOLUME ['/app/data']
 WORKDIR /app/data
 CMD ../RandomNeko
