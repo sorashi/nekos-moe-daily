@@ -6,5 +6,8 @@ RUN dotnet publish RandomNeko -c Release -o ./publish
 FROM mcr.microsoft.com/dotnet/runtime:5.0 as runner
 WORKDIR /app
 COPY --from=builder  /app/publish .
+RUN useradd app && mkdir /app/data && chown app:app /app/data
+USER app
+VOLUME ['/app/data']
 WORKDIR /app/data
 CMD ../RandomNeko
