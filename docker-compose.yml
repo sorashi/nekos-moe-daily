@@ -3,4 +3,4 @@ services:
   neko:
     build: src/RandomNeko
     volumes:
-      - ./data/:/data/
+      - ./data/:/app/data/
