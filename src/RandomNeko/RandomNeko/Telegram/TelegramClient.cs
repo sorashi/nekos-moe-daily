@@ -51,12 +51,12 @@ namespace RandomNeko.Telegram
             var maxId = ulong.MinValue;
             foreach (Update update in updates) {
                 maxId = Math.Max(update.UpdateId, maxId);
-                if (update.Message.Text == "/stop") {
+                if (update.Message?.Text == "/stop") {
                     await db.RemoveTelegramClientAsync(update.Message.Chat.Id.ToString());
                     continue;
                 }
 
-                if(update.Message.Text != "/start") continue;
+                if(update.Message?.Text != "/start") continue;
                 await db.AddTelegramClientAsync(update.Message.Chat.Id.ToString());
                 await SendMessageAsync(update.Message.Chat.Id.ToString(),
                     $"Thanks, {update.Message.Chat.Username}! I'll send you nekos every day at 20:00 CET. Type /stop to stop me.");
