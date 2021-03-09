@@ -3,7 +3,11 @@
 Takes a random neko from https://nekos.moe and posts it into a configured discord webhook and/or telegram users. You can run it daily as a cronjob.
 
 ## Usage
-`mkdir ./data && cd data && touch config.yml`
+```bash
+mkdir nekos-moe-daily && cd nekos-moe-daily
+wget https://raw.githubusercontent.com/sorashi/nekos-moe-daily/master/docker-compose.yml
+mkdir ./data && cd data && touch config.yml
+```
 
 Example config.yml
 ```yml
