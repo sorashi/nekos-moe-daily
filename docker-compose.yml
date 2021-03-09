@@ -1,6 +1,6 @@
 version: '3'
 services:
   neko:
-    build: src/RandomNeko
+    image: "sorashi/nekos-moe-daily:latest"
     volumes:
       - ./data/:/app/data/
