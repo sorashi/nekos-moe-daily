@@ -28,7 +28,9 @@ namespace RandomNeko
 
             var moeClient = new NekosMoeClient();
             var random = new Random();
-            var nsfw = random.NextDouble() < config.NsfwChance;
+            var number = random.NextDouble();
+            var nsfw = number < config.NsfwChance;
+            Console.WriteLine($"NSFW rolled: {number}, configured chance {config.NsfwChance}, nsfw {nsfw}");
             var neko = await GetRandomNekoThatHasNotBeenPostedYet(database, moeClient, nsfw);
             if (posters.Count == 0) return;
             await Task.WhenAll(posters.Select(x => TaskWithExceptionHandling(x.PostAsync(neko))));

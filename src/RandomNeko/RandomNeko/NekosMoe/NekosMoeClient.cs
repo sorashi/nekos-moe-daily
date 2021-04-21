@@ -19,7 +19,7 @@ namespace RandomNeko.NekosMoe
         public async Task<ImageList> GetRandomNekos(bool? nsfw = null, int count = 1) {
             if(count < 1 || count > 100) throw new ArgumentException("count must be in 1-100", nameof(count));
             var request = new RestRequest("/random/image");
-            if(nsfw.HasValue) request.AddParameter(nameof(nsfw), nsfw);
+            if(nsfw.HasValue) request.AddParameter(nameof(nsfw), nsfw.Value ? "true" : "false");
             request.AddParameter(nameof(count), count);
             return await c.GetAsync<ImageList>(request);
         }
