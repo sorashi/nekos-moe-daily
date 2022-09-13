@@ -51,7 +51,7 @@ namespace RandomNeko
             if (client == null) throw new ArgumentNullException($"{nameof(client)} cannot be null");
             if (database == null) throw new ArgumentNullException($"{nameof(database)} cannot be null");
             while (true) {
-                var nekos = await client.GetRandomNekos(nsfw, 50);
+                var nekos = await client.GetRandomNekos(nsfw, 100);
                 if (nekos.Data == null) {
                     await client.HandleRateLimitAsync(nekos);
                     continue;
