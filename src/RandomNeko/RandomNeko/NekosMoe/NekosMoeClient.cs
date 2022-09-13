@@ -46,8 +46,11 @@ namespace RandomNeko.NekosMoe
             if (response.RetryAfter == null)
                 throw new NullReferenceException(
                     $"{nameof(response.RetryAfter)} is null, but we are rate limited. Can't know when to try again.");
+            
+            var waitFor = response.RetryAfter.Value + TimeSpan.FromMilliseconds(30);
+            Console.Error.WriteLine($"Hit a rate limit, delaying for {waitFor.TotalMilliseconds}ms.");
             // continue after we are not rate limited plus 30ms to be sure
-            await Task.Delay(response.RetryAfter.Value + TimeSpan.FromMilliseconds(30));
+            await Task.Delay(waitFor);
         }
 
         public static string GetImageUrlFromId(string id) => $"https://nekos.moe/image/{id}.jpg";

@@ -60,6 +60,7 @@ namespace RandomNeko
                     if (await database.HasBeenPostedAsync(neko.Id)) continue;
                     return neko;
                 }
+                Console.Error.WriteLine($"No neko inside response was a new neko, requesting again.");
             }
         }
     }
