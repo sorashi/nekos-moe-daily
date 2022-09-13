@@ -46,11 +46,17 @@ namespace RandomNeko
             }
         }
 
-        private static async Task<Image> GetRandomNekoThatHasNotBeenPostedYet(INekoDatabase database, NekosMoeClient client, bool nsfw) {
+        private static async Task<Image> GetRandomNekoThatHasNotBeenPostedYet(INekoDatabase database, NekosMoeClient client, bool nsfw)
+        {
+            if (client == null) throw new ArgumentNullException($"{nameof(client)} cannot be null");
+            if (database == null) throw new ArgumentNullException($"{nameof(database)} cannot be null");
             while (true) {
-                // TODO handle rate limiting
                 var nekos = await client.GetRandomNekos(nsfw, 50);
-                foreach (var neko in nekos.Images) {
+                if (nekos.Data == null) {
+                    await client.HandleRateLimitAsync(nekos);
+                    continue;
+                }
+                foreach (var neko in nekos.Data.Images) {
                     if (await database.HasBeenPostedAsync(neko.Id)) continue;
                     return neko;
                 }
